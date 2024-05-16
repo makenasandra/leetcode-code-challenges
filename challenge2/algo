@@ -1,0 +1,6 @@
+// the following are two solutions to the two number sum in algoexperts.io
+/*the prompt is as above 
+write a function that takes in a non-empty array of distinct integers and a target sum. if any two numbers in the input
+array sum up to the target sum, the function should return them in an array in any order , if no two numbers sum up to the 
+target sum the funciton should return an empty array 
+note that the target sum has to be obtained by summing two different integers in the array; you cant

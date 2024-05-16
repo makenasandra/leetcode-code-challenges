@@ -28,6 +28,7 @@ var romanToInt = function (s) {
 
     }
    
+   
     for (let n = 0; n <= toSum.length - 1; n++) {
         if (toSum[n] < toSum[n + 1] ) {
             number += toSum[n + 1] - toSum[n];   
