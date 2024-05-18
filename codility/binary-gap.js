@@ -45,6 +45,7 @@ function solution(N) {
 }
 //O(n)+O(n)= O(n)
 
+//86% accuracy
 function solution2(N) {
     // Implement your solution here
     let onesIndex = [];
