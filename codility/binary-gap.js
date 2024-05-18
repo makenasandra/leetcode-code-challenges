@@ -16,37 +16,54 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [1..2,147,483,647].
  */
 
-function solution(N){
-    let binaryRep = []
-    
-    while(N !== 0){
-        //9
-        if (N%2 === 0) {
-            binaryRep.push(0);
-        } else {
-            binaryRep.push(1);
-        }
-        N = Math.floor(N/2);
-    }
-    binaryRep.reverse()
-    let ones = binaryRep.filter(el=> el===1);
+console.log(solution(561892)); 
+// // console.log(solution(15));
+// // console.log(solution(328));
+// console.log(solution2(20));[34]
 
-    if(ones.length < 2) return 0; 
-    let zerosLength = 0;
-    let maxLength = 0;
-    for (let index = 0; index < binaryRep.length; index++) {
-        if(binaryRep[index]===0){
-            zerosLength ++;
-        } else {
-            maxLength = zerosLength>maxLength? zerosLength: maxLength;
-            zerosLength = 0;
-        }
-        
+
+function solution(N) {
+  // Implement your solution here
+  let onesIndex = [];
+  let maxLength = 0;
+  let index = 0;
+
+  while (N !== 0) {
+    if (N % 2 !== 0) {
+      onesIndex.push(index);
     }
-    // binaryRep = Number(binaryRep.join(""))
-    // console.log(binaryRep)
-    return maxLength;
-    
+    index++;
+    N = Math.floor(N / 2);
+  } 
+
+  for (let index = 0; index <= onesIndex.length - 2; index++) {
+    let zeroLength = onesIndex[index + 1] - onesIndex[index] - 1;
+    maxLength = zeroLength > maxLength ? zeroLength : maxLength;
+  }
+
+  return maxLength;
 }
+//O(n)+O(n)= O(n)
 
-console.log(solution(1041))
+function solution(N) {
+    // Implement your solution here
+    let onesIndex = [];
+    let maxLength = 0;
+    let currentIndex = 0;
+    let previousIndex = 0;
+  
+    while (N !== 0) {
+      if (N % 2 !== 0) { 3
+        onesIndex.push(currentIndex);//[3,6] //110 [1,2]
+        if (onesIndex.length > 1) {
+          let zerosLength = currentIndex - previousIndex - 1;
+          maxLength = zerosLength > maxLength ? zerosLength : maxLength;
+          previousIndex = currentIndex;
+        }
+      }
+      currentIndex++;
+      N = Math.floor(N / 2);
+    }
+  
+    return maxLength;
+}
