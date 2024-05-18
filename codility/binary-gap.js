@@ -45,7 +45,7 @@ function solution(N) {
 }
 //O(n)+O(n)= O(n)
 
-function solution(N) {
+function solution2(N) {
     // Implement your solution here
     let onesIndex = [];
     let maxLength = 0;
